@@ -1,0 +1,128 @@
+<html>
+
+<head>
+    <title>Data Table</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="datatablestyle.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Data From API</h1>
+        <br />
+        <button type="button" class="btn btn-primary" id="btn">Fetch Data</button>
+        <button type="button" class="btn btn-primary" id="addbtn" data-toggle="modal" data-target="#addModal">Add
+            Item</button>
+        <button type="button" class="btn btn-primary" id="delbtn" data-toggle="modal" data-target="#delModal">Delete
+            Custom</button>
+        <button type="button" class="btn btn-primary" id="delchk">Delete Selected</button>
+        <button type="button" class="btn btn-primary" id="logout">Logout</button>
+        <br></br>
+
+        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Item</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <label for="reputation">Reputation</label>
+                            <input type="number" id="addrep">
+                            <br />
+                            <label for="userid">Owner Id</label>
+                            <input type="number" id="adduid">
+                            <br />
+                            <label for="name"> Owner Name</label>
+                            <input type="text" id="adduname">
+                            <br></br>
+                            <button type="button" class="btn btn-primary" id="addrow">Add user</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+            <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete Item</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <label for="deluserid">Enter Reputation/UserId</label>
+                            <input type="text" id="deleteid">
+                            <br></br>
+                            <button type="button" class="btn btn-primary" id="deleterow">Delete user</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header ">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Item</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="updatebody">
+                        <form>
+                            <label for="reputation">Reputation</label>
+                            <input type="edit_rep" id="editrep">
+                            <label for="userid">Owner Id</label>
+                            <input type="edit_uid" id="edituid">
+                            <label for="name">Owner Name</label>
+                            <input type="edit_uname" id="edituname">
+                            <br></br>
+                            <button type="button" class="btn btn-primary" id="btn-update">Update</button>
+                            <p class="rowid" id="rowindex">out</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <table id="Table" class="display">
+            <thead>
+                <tr>
+                    <th>Reputation</th>
+                    <th>User Id</th>
+                    <th>Display Name</th>
+                    <th>Options</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src="datatable.js"></script>
+</body>
+
+</html>
